@@ -26,18 +26,20 @@ pipeline {
         }
         stage('kitchen test') {
             steps {
-                script {
-            try {
+               
                 sh "sudo kitchen converge"
-            } catch (Exception e) {
-            status = -1
-            }
-            }
+            
             }
         }
         stage('inspec test') {
             steps {
+                 script {
+            try {
                 sh "sudo kitchen verify"
+                } catch (Exception e) {
+            status = -1
+            }
+            }
             }
         }
         stage('berks upload') {
