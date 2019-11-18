@@ -26,7 +26,13 @@ pipeline {
         }
         stage('kitchen test') {
             steps {
+                script {
+            try {
                 sh "sudo kitchen converge"
+            } catch (Exception e) {
+            status = -1
+            }
+            }
             }
         }
         stage('inspec test') {
