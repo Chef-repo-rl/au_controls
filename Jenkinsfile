@@ -3,7 +3,13 @@ pipeline {
     stages {
         stage('Foodcritic') {
             steps {
+            script {
+            try {
                 sh "foodcritic ."
+            } catch (Exception e) {
+            status = -1
+            }
+            }
             }
         }
         stage('cookstyle') {
