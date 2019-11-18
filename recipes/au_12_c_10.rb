@@ -4,6 +4,14 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
+['audit', 'audit-libs'].each |pkg| do
+package pkg do
+  action :install
+end
+end
+
+
+
 directory '/etc/audit/rules.d' do
   owner 'root'
   group 'root'
