@@ -4,6 +4,12 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
+directory '/etc/audit/rules.d' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
 
 append_if_no_line "make sure a line is in audit.rules file " do
   path "/etc/audit/rules.d/audit.rules"
