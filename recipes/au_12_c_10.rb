@@ -4,7 +4,7 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
-['audit', 'audit-libs'].each |pkg| do
+['audit', 'audit-libs'].each do |pkg|
 package pkg do
   action :install
 end
